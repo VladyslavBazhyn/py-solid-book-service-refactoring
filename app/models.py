@@ -1,12 +1,12 @@
 import json
 
-import xml.etree.ElementTree as ET
+import xml.etree.ElementTree as et
 
 from abc import ABC, abstractmethod
 
 
 class BookDisplay(ABC):
-    def __init__(self, content: str):
+    def __init__(self, content: str) -> None:
         self.content = content
 
     @abstractmethod
@@ -20,7 +20,7 @@ class BookDisplay(ABC):
 
 
 class BookPrint(ABC):
-    def __init__(self, title: str, content: str):
+    def __init__(self, title: str, content: str) -> None:
         self.title = title
         self.content = content
 
@@ -37,7 +37,7 @@ class BookPrint(ABC):
 
 
 class BookSerializer(ABC):
-    def __init__(self, title: str, content: str):
+    def __init__(self, title: str, content: str) -> None:
         self.title = title
         self.content = content
 
@@ -46,18 +46,18 @@ class BookSerializer(ABC):
         if serialize_type == "json":
             return json.dumps({"title": self.title, "content": self.content})
         elif serialize_type == "xml":
-            root = ET.Element("book")
-            title = ET.SubElement(root, "title")
+            root = et.Element("book")
+            title = et.SubElement(root, "title")
             title.text = self.title
-            content = ET.SubElement(root, "content")
+            content = et.SubElement(root, "content")
             content.text = self.content
-            return ET.tostring(root, encoding="unicode")
+            return et.tostring(root, encoding="unicode")
         else:
             raise ValueError(f"Unknown serialize type: {serialize_type}")
 
 
 class Book(BookSerializer, BookDisplay, BookPrint):
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
 
     def serialize(self, serialize_type: str) -> str:
