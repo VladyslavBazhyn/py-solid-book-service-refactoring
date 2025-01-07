@@ -2,14 +2,11 @@ import json
 
 import xml.etree.ElementTree as Et
 
-from abc import ABC, abstractmethod
 
-
-class BookDisplay(ABC):
+class BookDisplay:
     def __init__(self, content: str) -> None:
         self.content = content
 
-    @abstractmethod
     def display(self, display_type: str) -> None:
         if display_type == "console":
             print(self.content)
@@ -19,12 +16,11 @@ class BookDisplay(ABC):
             raise ValueError(f"Unknown display type: {display_type}")
 
 
-class BookPrint(ABC):
+class BookPrint:
     def __init__(self, title: str, content: str) -> None:
         self.title = title
         self.content = content
 
-    @abstractmethod
     def print_book(self, print_type: str) -> None:
         if print_type == "console":
             print(f"Printing the book: {self.title}...")
@@ -36,12 +32,11 @@ class BookPrint(ABC):
             raise ValueError(f"Unknown print type: {print_type}")
 
 
-class BookSerializer(ABC):
+class BookSerializer:
     def __init__(self, title: str, content: str) -> None:
         self.title = title
         self.content = content
 
-    @abstractmethod
     def serialize(self, serialize_type: str) -> str:
         if serialize_type == "json":
             return json.dumps({"title": self.title, "content": self.content})
