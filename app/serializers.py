@@ -33,7 +33,8 @@ class SerializerXML(Serializer):
 
 class SerializerFactory:
     """
-    Factory to create the appropriate Serializer instance based on the serialized type.
+    Factory to create the appropriate Serializer instance
+    based on the serialized type.
     """
 
     @staticmethod

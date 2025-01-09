@@ -19,13 +19,15 @@ class PrintConsole(Print):
 class PrintReverse(Print):
     def print_book(self) -> None:
         print(
-            f"Printing the book in reverse: {self.title}...", f"\n{self.content[::-1]}"
+            f"Printing the book in reverse: {self.title}...",
+            f"\n{self.content[::-1]}"
         )
 
 
 class PrintFactory:
     """
-    Factory to create the appropriate Display instance based on the display type.
+    Factory to create the appropriate Display instance
+    based on the display type.
     """
 
     @staticmethod

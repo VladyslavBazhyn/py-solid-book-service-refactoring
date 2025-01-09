@@ -22,7 +22,8 @@ class DisplayReverse(Display):
 
 class DisplayFactory:
     """
-    Factory to create the appropriate Display instance based on the display type.
+    Factory to create the appropriate Display instance
+    based on the display type.
     """
 
     @staticmethod
