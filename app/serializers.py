@@ -35,6 +35,7 @@ class SerializerFactory:
     """
     Factory to create the appropriate Serializer instance based on the serialized type.
     """
+
     @staticmethod
     def serialize(title: str, content: str, serialize_type: str) -> str:
         if serialize_type == "xml":

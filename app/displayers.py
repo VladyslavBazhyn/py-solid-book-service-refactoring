@@ -24,6 +24,7 @@ class DisplayFactory:
     """
     Factory to create the appropriate Display instance based on the display type.
     """
+
     @staticmethod
     def display(content: str, display_type: str) -> None:
         if display_type == "console":
